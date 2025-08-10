@@ -21,6 +21,7 @@ const router = createRouter({
       props: true,
     },
   ],
+  scrollBehavior: () => ({ top: 0 }),
 })
 
 export default router
