@@ -1,35 +1,68 @@
 # Pokedex
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple Pokédex built with Vue 3, Pinia, Vue Router 4, and Bootstrap 5.3. Data from PokeAPI.
 
-## Recommended IDE Setup
+## Stack
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Vue 3 (Vite)
+- Vue Router 4 (history mode, `scrollBehavior: () => ({ top: 0 })`)
+- Pinia for state management
+- Bootstrap 5.3.x for UI
+- Native fetch API
 
-## Customize configuration
+## Routes
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- `/` → `PokedexView.vue`
+- `/pokemon/:idOrName` → `PokemonDetailView.vue`
 
-## Project Setup
+## State
+
+- `usePokedexStore` → list, filters, `editsById` (nickname/favorite/notes) with localStorage persistence
+- `usePokemonStore` → per-Pokémon details/species cache with loading/error per key
+
+## Run locally
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
 ```
 
-### Compile and Minify for Production
+## Build and preview
 
 ```sh
 pnpm build
+pnpm preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Lint/format
 
 ```sh
 pnpm lint
+pnpm format
 ```
+
+## Deployment
+
+Recommended: Netlify. Deploy the Vite build output (`dist/`). Ensure SPA fallback to `/index.html`.
+
+### Netlify SPA fallback
+
+Add `public/_redirects` with:
+
+```
+/* /index.html 200
+```
+
+## Acceptance checklist
+
+- Exactly 100 Pokémon on list with search filter and responsive grid
+- Card click navigates to details with meaningful sections (hero, about, abilities, base stats, flavor)
+- Loaders and error handling for list and details
+- Edits (nickname/favorite/notes) persisted locally and reflected immediately
+- Public repo, documented, deployed with SPA fallback
+
+## Architecture notes
+
+- Images derived via id using official artwork URL
+- List fetch limited to 100; details/species fetched on demand and cached
+- Search is debounced (~200ms) and case-insensitive on name

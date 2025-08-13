@@ -1,5 +1,10 @@
 <script setup>
+import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import { usePokedexStore } from './stores/pokedex'
+onMounted(() => {
+  usePokedexStore().init()
+})
 </script>
 
 <template>

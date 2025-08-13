@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { usePokedexStore } from '../stores/pokedex'
+import { RouterLink } from 'vue-router'
 const store = usePokedexStore()
 const input = ref(store.query)
 let t
@@ -32,9 +33,24 @@ onMounted(() => {
       <div>{{ store.error }}</div>
       <button class="btn btn-sm btn-outline-light" @click="store.fetchList()">Retry</button>
     </div>
+
     <div v-else class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
       <div v-for="p in store.filteredItems" :key="p.id" class="col">
-        <div class="card h-100 text-center">
+        <RouterLink
+          class="card h-100 text-center text-decoration-none position-relative"
+          :to="`/pokemon/${p.id}`"
+          :aria-label="`View details for ${p.name}`"
+        >
+          <!-- Star positioned absolutely -->
+          <span
+            v-if="p.favorite"
+            class="position-absolute top-0 end-0 m-1"
+            style="font-size: 1.2rem"
+            aria-label="Favorite"
+          >
+            ⭐
+          </span>
+
           <div class="ratio ratio-1x1">
             <img
               :src="p.imageUrl"
@@ -44,9 +60,10 @@ onMounted(() => {
             />
           </div>
           <div class="card-body p-2">
-            <h6 class="mb-0 text-capitalize">{{ p.name }}</h6>
+            <h6 class="mb-0 text-capitalize">{{ p.displayName }}</h6>
+            <span class="badge text-bg-secondary">#{{ p.id }}</span>
           </div>
-        </div>
+        </RouterLink>
       </div>
     </div>
   </div>

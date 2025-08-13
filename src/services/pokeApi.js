@@ -14,3 +14,16 @@ export async function fetchPokemonList(limit = 100, offset = 0) {
     return { id, name, imageUrl }
   })
 }
+
+export async function fetchPokemonDetails(idOrName) {
+  return getJson(`${API}/pokemon/${idOrName}`)
+}
+
+export async function fetchPokemonSpecies(id) {
+  return getJson(`${API}/pokemon-species/${id}`)
+}
+
+export function getEnglishFlavorText(species) {
+  const entry = species?.flavor_text_entries?.find((e) => e.language.name === 'en')
+  return entry ? entry.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim() : ''
+}
