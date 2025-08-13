@@ -57,6 +57,7 @@ onMounted(() => {
               :alt="`Pokemon ${p.name} official artwork`"
               class="object-fit-contain p-2 img-fluid"
               loading="lazy"
+              decoding = "async"
             />
           </div>
           <div class="card-body p-2">

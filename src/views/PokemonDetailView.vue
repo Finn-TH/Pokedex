@@ -78,22 +78,39 @@ watch(() => route.params.idOrName, load)
           </div>
         </div>
         <div class="col">
-          <h2 class="text-capitalize mb-1">
-            {{ pokedex.editsById[detail.id]?.nickname || detail.name }}
-            <span class="badge text-bg-secondary ms-2">#{{ detail.id }}</span>
-            <button
-              class="btn btn-outline-light btn-sm ms-2"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#editModal"
+          <div class="card p-3 position-relative">
+            <span
+              v-if="pokedex.editsById[detail.id]?.favorite"
+              class="position-absolute top-0 end-0 p-2"
+              aria-label="Favorite"
             >
-              Edit
-            </button>
-          </h2>
-          <div class="text-muted">Types: {{ detail.types.map((t) => t.type.name).join(', ') }}</div>
-          <span v-if="pokedex.editsById[detail.id]?.favorite" class="ms-2" aria-label="Favorite"
-            >⭐</span
-          >
+              ⭐
+            </span>
+            <h2 class="text-capitalize mb-2 d-flex align-items-center flex-wrap gap-2">
+              <span>{{ pokedex.editsById[detail.id]?.nickname || detail.name }}</span>
+              <span class="badge text-bg-secondary">#{{ detail.id }}</span>
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#editModal"
+              >
+                Edit
+              </button>
+            </h2>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <div class="small text-muted">Types</div>
+              <span
+                v-for="t in detail.types"
+                :key="t.type.name"
+                class="type-chip"
+                :class="`type-${t.type.name}`"
+                :title="t.type.name"
+              >
+                {{ t.type.name }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 

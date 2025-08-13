@@ -16,3 +16,37 @@
     display: block;
   }
 }
+
+/* Pokemon type chips - inspired by official palette */
+.type-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.85rem;
+  color: #fff;
+  min-width: 70px;
+  text-align: center;
+}
+
+.type-normal { background: #a8a77a; }
+.type-fire { background: #ee8130; }
+.type-water { background: #6390f0; }
+.type-electric { background: #f7d02c; color: #3a3a3a; }
+.type-grass { background: #7ac74c; }
+.type-ice { background: #96d9d6; color: #1d2c2c; }
+.type-fighting { background: #c22e28; }
+.type-poison { background: #a33ea1; }
+.type-ground { background: #e2bf65; color: #3a2e0a; }
+.type-flying { background: #a98ff3; }
+.type-psychic { background: #f95587; }
+.type-bug { background: #a6b91a; }
+.type-rock { background: #b6a136; color: #2d2505; }
+.type-ghost { background: #735797; }
+.type-dragon { background: #6f35fc; }
+.type-dark { background: #705746; }
+.type-steel { background: #b7b7ce; color: #1f1f2e; }
+.type-fairy { background: #d685ad; }
