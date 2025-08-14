@@ -7,12 +7,12 @@ A simple Pokédex built with Vue 3, Pinia, Vue Router 4, and Bootstrap 5.3. Data
 ### Pokedex View
 
 Displays a searchable grid of Pokémon cards:
-![Pokedex View](assets/pokedex-view.png)
+![Pokedex View](src/assets/pokedex-view.png)
 
 ### Pokémon Detail View
 
 Shows detailed information about a specific Pokémon:
-![Pokemon Detail View](assets/pokemon-detail-view.png)
+![Pokemon Detail View](src/assets/pokedex-detail-view.png)
 
 ## Stack
 
