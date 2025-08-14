@@ -16,6 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- Search bar for filtering Pokémon by name -->
   <div class="container py-4">
     <h1 class="mb-3">Pokedex</h1>
 
@@ -33,7 +34,7 @@ onMounted(() => {
       <div>{{ store.error }}</div>
       <button class="btn btn-sm btn-outline-light" @click="store.fetchList()">Retry</button>
     </div>
-
+    <!-- Grid layout for displaying Pokémon cards -->
     <div v-else class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
       <div v-for="p in store.filteredItems" :key="p.id" class="col">
         <RouterLink
@@ -42,7 +43,12 @@ onMounted(() => {
           :aria-label="`View details for ${p.name}`"
         >
           <!-- Star positioned absolutely -->
-          <span v-if="p.favorite" class="position-absolute top-0 end-0 m-2 favorite-star" aria-label="Favorite">★</span>
+          <span
+            v-if="p.favorite"
+            class="position-absolute top-0 end-0 m-2 favorite-star"
+            aria-label="Favorite"
+            >★</span
+          >
 
           <div class="ratio ratio-1x1">
             <img

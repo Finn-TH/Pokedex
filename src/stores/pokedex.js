@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
 import { fetchPokemonList } from '../services/pokeApi'
 
+/**
+ * Pinia store for managing the Pokémon list and related state.
+ */
+
 export const usePokedexStore = defineStore('pokedex', {
   state: () => ({
     items: [],
@@ -23,7 +27,7 @@ export const usePokedexStore = defineStore('pokedex', {
           displayName: nickname || i.name,
         }
       }),
-
+    /* Filters the Pokémon list based on a search query. */
     filteredItems: (s) => {
       const q = s.query.trim().toLowerCase()
       const list = s.decoratedItems
@@ -31,6 +35,7 @@ export const usePokedexStore = defineStore('pokedex', {
     },
   },
   actions: {
+    /* Fetches the Pokémon list from the API and updates the store state. */
     async fetchList() {
       if (this.status === 'loading' || this.items.length) return
       this.status = 'loading'
@@ -46,6 +51,7 @@ export const usePokedexStore = defineStore('pokedex', {
     setQuery(q) {
       this.query = q
     },
+    /* Updates the edits for a specific Pokémon by ID. */
     setEdit(id, patch) {
       const current = this.editsById[id] || {}
       this.editsById[id] = { ...current, ...patch }

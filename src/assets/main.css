@@ -41,30 +41,76 @@ body {
   text-align: center;
 }
 
-.type-normal { background: #a8a77a; }
-.type-fire { background: #ee8130; }
-.type-water { background: #6390f0; }
-.type-electric { background: #f7d02c; color: #3a3a3a; }
-.type-grass { background: #7ac74c; }
-.type-ice { background: #96d9d6; color: #1d2c2c; }
-.type-fighting { background: #c22e28; }
-.type-poison { background: #a33ea1; }
-.type-ground { background: #e2bf65; color: #3a2e0a; }
-.type-flying { background: #a98ff3; }
-.type-psychic { background: #f95587; }
-.type-bug { background: #a6b91a; }
-.type-rock { background: #b6a136; color: #2d2505; }
-.type-ghost { background: #735797; }
-.type-dragon { background: #6f35fc; }
-.type-dark { background: #705746; }
-.type-steel { background: #b7b7ce; color: #1f1f2e; }
-.type-fairy { background: #d685ad; }
+.type-normal {
+  background: #a8a77a;
+}
+.type-fire {
+  background: #ee8130;
+}
+.type-water {
+  background: #6390f0;
+}
+.type-electric {
+  background: #f7d02c;
+  color: #3a3a3a;
+}
+.type-grass {
+  background: #7ac74c;
+}
+.type-ice {
+  background: #96d9d6;
+  color: #1d2c2c;
+}
+.type-fighting {
+  background: #c22e28;
+}
+.type-poison {
+  background: #a33ea1;
+}
+.type-ground {
+  background: #e2bf65;
+  color: #3a2e0a;
+}
+.type-flying {
+  background: #a98ff3;
+}
+.type-psychic {
+  background: #f95587;
+}
+.type-bug {
+  background: #a6b91a;
+}
+.type-rock {
+  background: #b6a136;
+  color: #2d2505;
+}
+.type-ghost {
+  background: #735797;
+}
+.type-dragon {
+  background: #6f35fc;
+}
+.type-dark {
+  background: #705746;
+}
+.type-steel {
+  background: #b7b7ce;
+  color: #1f1f2e;
+}
+.type-fairy {
+  background: #d685ad;
+}
 
+/* Styles for Pokémon cards */
 /* App card styling: soft modern look */
 .app-card {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(28, 28, 32, 0.45);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
@@ -72,15 +118,25 @@ body {
   --bs-card-color: #ffffff;
 }
 
-.app-card-hover { transition: transform 120ms ease, box-shadow 120ms ease; }
+.app-card-hover {
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
 .app-card-hover:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
-.app-card .text-muted { color: rgba(255, 255, 255, 0.85) !important; }
+.app-card .text-muted {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
 
-.favorite-star { font-size: 1.2rem; color: #f7d02c; text-shadow: 0 0 6px rgba(255, 215, 0, 0.6); }
+.favorite-star {
+  font-size: 1.2rem;
+  color: #f7d02c;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
 
 /* Modal theming for dark UI */
 .modal-content {
@@ -90,16 +146,24 @@ body {
   backdrop-filter: blur(6px);
 }
 .modal-header,
-.modal-footer { border-color: rgba(255, 255, 255, 0.15); }
-.modal-title { color: #ffffff; }
+.modal-footer {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.modal-title {
+  color: #ffffff;
+}
 
-.modal .form-label { color: #ffffff; }
+.modal .form-label {
+  color: #ffffff;
+}
 .modal .form-control {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
-.modal .form-control::placeholder { color: rgba(255, 255, 255, 0.7); }
+.modal .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
 .modal .form-control:focus {
   background-color: rgba(255, 255, 255, 0.12);
   border-color: #86b7fe;

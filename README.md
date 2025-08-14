@@ -23,6 +23,7 @@ A simple Pokédex built with Vue 3, Pinia, Vue Router 4, and Bootstrap 5.3. Data
 ## Run locally
 
 ```sh
+gh repo clone Finn-TH/Pokedex
 pnpm install
 pnpm dev
 ```
@@ -34,35 +35,22 @@ pnpm build
 pnpm preview
 ```
 
-## Lint/format
-
-```sh
-pnpm lint
-pnpm format
-```
-
-## Deployment
-
-Recommended: Netlify. Deploy the Vite build output (`dist/`). Ensure SPA fallback to `/index.html`.
-
-### Netlify SPA fallback
-
-Add `public/_redirects` with:
-
-```
-/* /index.html 200
-```
-
 ## Acceptance checklist
 
 - Exactly 100 Pokémon on list with search filter and responsive grid
 - Card click navigates to details with meaningful sections (hero, about, abilities, base stats, flavor)
 - Loaders and error handling for list and details
 - Edits (nickname/favorite/notes) persisted locally and reflected immediately
-- Public repo, documented, deployed with SPA fallback
 
-## Architecture notes
+### Architecture
 
-- Images derived via id using official artwork URL
-- List fetch limited to 100; details/species fetched on demand and cached
-- Search is debounced (~200ms) and case-insensitive on name
+- **`src/services/pokeApi.js`**: Handles API calls to fetch Pokémon data.
+- **`src/stores/pokedex.js`**: Manages the Pokémon list and related state using Pinia.
+- **`src/views/PokedexView.vue`**: Displays a searchable grid of Pokémon cards.
+- **`src/views/PokemonDetailView.vue`**: Shows detailed information about a specific Pokémon.
+- **`src/assets/main.css`**: Contains custom styles for the app.
+
+### Error Handling
+
+- Errors during API calls are stored in the `error` state of the Pinia store.
+- If an error occurs, a user-friendly message is displayed in the UI.

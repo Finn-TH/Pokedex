@@ -6,6 +6,7 @@ async function getJson(url) {
   return res.json()
 }
 
+/* Fetches a list of Pokémon from the PokeAPI, limiting it to 100 requests */
 export async function fetchPokemonList(limit = 100, offset = 0) {
   const data = await getJson(`${API}/pokemon?limit=${limit}&offset=${offset}`)
   return data.results.map(({ name, url }) => {
@@ -14,6 +15,8 @@ export async function fetchPokemonList(limit = 100, offset = 0) {
     return { id, name, imageUrl }
   })
 }
+
+/* Fetches additional details on the Pokémon */
 
 export async function fetchPokemonDetails(idOrName) {
   return getJson(`${API}/pokemon/${idOrName}`)
