@@ -17,6 +17,15 @@
   }
 }
 
+/* Bootstrap variable overrides for dark UI */
+body {
+  --bs-body-color: #ffffff;
+  --bs-heading-color: #ffffff;
+  --bs-secondary-color: rgba(255, 255, 255, 0.8);
+  --bs-tertiary-color: rgba(255, 255, 255, 0.6);
+  --bs-border-color: rgba(255, 255, 255, 0.15);
+}
+
 /* Pokemon type chips - inspired by official palette */
 .type-chip {
   display: inline-flex;
@@ -50,3 +59,66 @@
 .type-dark { background: #705746; }
 .type-steel { background: #b7b7ce; color: #1f1f2e; }
 .type-fairy { background: #d685ad; }
+
+/* App card styling: soft modern look */
+.app-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(28, 28, 32, 0.45);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  --bs-card-color: #ffffff;
+}
+
+.app-card-hover { transition: transform 120ms ease, box-shadow 120ms ease; }
+.app-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.app-card .text-muted { color: rgba(255, 255, 255, 0.85) !important; }
+
+.favorite-star { font-size: 1.2rem; color: #f7d02c; text-shadow: 0 0 6px rgba(255, 215, 0, 0.6); }
+
+/* Modal theming for dark UI */
+.modal-content {
+  background: rgba(22, 24, 28, 0.96);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+.modal-header,
+.modal-footer { border-color: rgba(255, 255, 255, 0.15); }
+.modal-title { color: #ffffff; }
+
+.modal .form-label { color: #ffffff; }
+.modal .form-control {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+.modal .form-control::placeholder { color: rgba(255, 255, 255, 0.7); }
+.modal .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #86b7fe;
+  color: #ffffff;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Search input styling */
+.form-control {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.form-control:focus {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}

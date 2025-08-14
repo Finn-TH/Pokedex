@@ -37,19 +37,12 @@ onMounted(() => {
     <div v-else class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
       <div v-for="p in store.filteredItems" :key="p.id" class="col">
         <RouterLink
-          class="card h-100 text-center text-decoration-none position-relative"
+          class="card app-card app-card-hover h-100 text-center text-decoration-none position-relative"
           :to="`/pokemon/${p.id}`"
           :aria-label="`View details for ${p.name}`"
         >
           <!-- Star positioned absolutely -->
-          <span
-            v-if="p.favorite"
-            class="position-absolute top-0 end-0 m-1"
-            style="font-size: 1.2rem"
-            aria-label="Favorite"
-          >
-            ⭐
-          </span>
+          <span v-if="p.favorite" class="position-absolute top-0 end-0 m-2 favorite-star" aria-label="Favorite">★</span>
 
           <div class="ratio ratio-1x1">
             <img
@@ -57,7 +50,7 @@ onMounted(() => {
               :alt="`Pokemon ${p.name} official artwork`"
               class="object-fit-contain p-2 img-fluid"
               loading="lazy"
-              decoding = "async"
+              decoding="async"
             />
           </div>
           <div class="card-body p-2">

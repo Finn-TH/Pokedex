@@ -78,13 +78,13 @@ watch(() => route.params.idOrName, load)
           </div>
         </div>
         <div class="col">
-          <div class="card p-3 position-relative">
+          <div class="card app-card p-3 position-relative">
             <span
               v-if="pokedex.editsById[detail.id]?.favorite"
-              class="position-absolute top-0 end-0 p-2"
+              class="position-absolute top-0 end-0 p-2 favorite-star"
               aria-label="Favorite"
             >
-              ⭐
+              ★
             </span>
             <h2 class="text-capitalize mb-2 d-flex align-items-center flex-wrap gap-2">
               <span>{{ pokedex.editsById[detail.id]?.nickname || detail.name }}</span>
@@ -99,7 +99,7 @@ watch(() => route.params.idOrName, load)
               </button>
             </h2>
             <div class="d-flex align-items-center gap-2 flex-wrap">
-              <div class="small text-muted">Types</div>
+            <div class="small text-muted">Types</div>
               <span
                 v-for="t in detail.types"
                 :key="t.type.name"
@@ -116,20 +116,20 @@ watch(() => route.params.idOrName, load)
 
       <!-- About + Abilities -->
       <div class="row g-3 mb-4">
-        <div class="col-6 col-md-3">
-          <div class="card p-3">
+            <div class="col-6 col-md-3">
+          <div class="card app-card p-3">
             <div class="small text-muted">Height</div>
             <div class="fw-semibold">{{ (detail.height / 10).toFixed(1) }} m</div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="card p-3">
+            <div class="col-6 col-md-3">
+          <div class="card app-card p-3">
             <div class="small text-muted">Weight</div>
             <div class="fw-semibold">{{ (detail.weight / 10).toFixed(1) }} kg</div>
           </div>
         </div>
-        <div class="col-12 col-md-6">
-          <div class="card p-3">
+            <div class="col-12 col-md-6">
+          <div class="card app-card p-3">
             <div class="small text-muted">Abilities</div>
             <div class="fw-semibold text-capitalize">
               {{ detail.abilities.map((a) => a.ability.name).join(', ') }}
@@ -139,7 +139,7 @@ watch(() => route.params.idOrName, load)
       </div>
 
       <!-- Base stats -->
-      <div class="card p-3 mb-4">
+      <div class="card app-card p-3 mb-4">
         <h5 class="mb-3">Base Stats</h5>
         <div v-for="s in detail.stats" :key="s.stat.name" class="mb-2">
           <div class="d-flex justify-content-between">
@@ -157,7 +157,7 @@ watch(() => route.params.idOrName, load)
       </div>
 
       <!-- Flavor text -->
-      <div class="card p-3">
+      <div class="card app-card p-3">
         <h5 class="mb-3">Flavor</h5>
         <div v-if="id && store.getStatus(`species:${id}`) === 'loading'" class="text-center my-2">
           <div class="spinner-border spinner-border-sm" role="status">
@@ -195,13 +195,20 @@ watch(() => route.params.idOrName, load)
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
         </div>
         <div class="modal-body">
-          <div class="mb-3">
+          <div class="mb-3 d-flex align-items-center justify-content-between gap-2">
             <label class="form-label">Nickname</label>
-            <input v-model="form.nickname" class="form-control" placeholder="Optional nickname" />
+            <button
+              type="button"
+              class="btn btn-outline-warning px-3"
+              :aria-pressed="form.favorite ? 'true' : 'false'"
+              @click="form.favorite = !form.favorite"
+              title="Toggle favorite"
+            >
+              <span style="font-size: 1.25rem; color: #f7d02c">{{ form.favorite ? '★' : '☆' }}</span>
+            </button>
           </div>
-          <div class="form-check mb-3">
-            <input id="fav" v-model="form.favorite" class="form-check-input" type="checkbox" />
-            <label for="fav" class="form-check-label">Favorite</label>
+          <div class="mb-3">
+            <input v-model="form.nickname" class="form-control" placeholder="Optional nickname" />
           </div>
           <div>
             <label class="form-label">Notes</label>
